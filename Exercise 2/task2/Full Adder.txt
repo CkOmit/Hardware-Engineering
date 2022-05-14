@@ -1,1 +1,30 @@
+entity full_adder is
+ port(
+a,b,Cin : in bit;
+Cout , S : out bit
+);
+end entity; 
 
+
+ 
+architecture data of full_adder is
+
+
+signal sig1,sig2,sig3 : bit;
+component half_adder is 
+port(
+a , b   : in bit;
+o_sum  , o_carry : out bit
+);
+end component ;
+
+
+begin
+HA1 : half_adder 
+     port map(a,b,sig2,sig1);
+HA2 : half_adder
+     port map(sig2,Cin,S,sig3);
+
+Cout <= sig3 or sig1 ;
+   
+end data;
