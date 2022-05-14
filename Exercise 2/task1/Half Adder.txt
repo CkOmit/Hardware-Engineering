@@ -1,0 +1,12 @@
+entity half_adder is
+ port(
+a , b   : in bit;
+o_sum  , o_carry : out bit
+);
+end entity; 
+ 
+architecture data of half_adder is
+begin
+   o_sum   <=a xor b;  
+   o_carry <= a and b;  
+end data;
